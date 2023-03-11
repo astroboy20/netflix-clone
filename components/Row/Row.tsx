@@ -18,6 +18,8 @@ interface Movie{
     name:string
 }
 const Row =({title,fetchUrl,isLargeRow}:RowProps)=>{
+
+    //initializing the movie
     const [movies,setMovies] = useState<Movie[]>([])
     useEffect(() => {
         async function fetchData(){

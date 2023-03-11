@@ -4,9 +4,14 @@ import axios from '@/utils/axios'
 import requests, { API_KEY } from '../../utils/request'
 import React,{useEffect, useState} from 'react'
 import { BannerButton, BannerContent, BannerDescription, BannerFadeButton, BannerTitle } from './Banner.style'
-
-
-
+import {FaPlay} from 'react-icons/fa'
+import {InformationCircle} from 'heroicons-react'
+interface Movie{
+  id:number;
+  poster_path:string;
+  backdrop_path:string;
+  name:string
+}
 
 
 const Banner = () => {
@@ -17,6 +22,7 @@ const Banner = () => {
     const request = await axios.get(requests.fetchTrending)
     setMovie(
       request.data.results[
+        //to get random images
         Math.floor(Math.random() * request.data.results.length -1)
       ]
     )
@@ -39,8 +45,9 @@ const Banner = () => {
     <div>
         <div 
         className='banner_body'
-        style={{
+        style={{ 
           backgroundSize:'cover',
+          backgroundRepeat:'no-repeat',
           backgroundPosition:'center center',
           backgroundImage:`url("https:image.tmdb.org/t/p/original/${movie?.backdrop_path}")`        
           }}>
@@ -48,8 +55,8 @@ const Banner = () => {
             <BannerContent>
               <BannerTitle>{movie?.title || movie?.name || movie?.original_name}</BannerTitle>
               <BannerButton>
-                  <button className="banner-button">Play</button>
-                  <button className="banner-button">My list</button>
+                  <button className="banner-button" ><FaPlay className='react-icon'/>Play</button>
+                  <button className="banner-button" ><InformationCircle className='react-icon'/>My list</button>
               </BannerButton>
               <BannerDescription>
                 {truncate(movie?.overview,150)}
