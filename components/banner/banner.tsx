@@ -3,7 +3,7 @@
 import axios from '@/utils/axios'
 import requests, { API_KEY } from '../../utils/request'
 import React,{useEffect, useState} from 'react'
-import { BannerButton, BannerContent, BannerDescription, BannerFadeButton, BannerTitle } from './Banner.style'
+import { BannerButton, BannerContent, BannerDescription, BannerFadeButton, BannerTitle } from './banner.style'
 import {FaPlay} from 'react-icons/fa'
 import {InformationCircle} from 'heroicons-react'
 interface Movie{

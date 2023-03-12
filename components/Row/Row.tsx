@@ -2,9 +2,10 @@
 import axios from '@/utils/axios'
 import requests from '@/utils/request'
 import React,{useState,useEffect, useRef} from 'react'
-import { RowBody, RowH1, RowPoster } from './Row.style'
 import Image from 'next/image'
 import {ChevronLeft, ChevronRight} from 'heroicons-react'
+import { RowBody, RowH1, RowPoster } from './row.style'
+
 
 type RowProps =  {
     title:string

@@ -1,11 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-// import styles from '@/styles/Home.module.css'
+import styles from '@/styles/Home.module.css'
 // import 'global.css'
 import { Header } from '@/components/header'
 import { Banner } from '@/components/banner'
-import { Row } from '@/components/Row'
+import { Row } from '@/components/row'
 import requests from '@/utils/request'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -19,7 +19,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="./logo.png" />
       </Head>
-      <main>
+      <main className={styles.main}>
        <Header/>
        <Banner/>
         <Row title='NETFLIX ORIGINALS' fetchUrl={requests.fetchNetflixOriginal} isLargeRow />
