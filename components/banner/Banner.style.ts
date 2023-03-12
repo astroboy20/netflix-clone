@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 export const BannerBody = styled.div`
     background-size: cover;
-    height: auto;
+    height: 500px;
     color: white;
     object-fit:contain;
     position: relative;
