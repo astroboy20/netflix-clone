@@ -56,7 +56,7 @@ const Banner = () => {
               <BannerTitle>{movie?.title || movie?.name || movie?.original_name}</BannerTitle>
               <BannerButton>
                   <button className="banner-button" ><FaPlay className='react-icon'/>Play</button>
-                  <button className="banner-button" ><InformationCircle className='react-icon'/>My list</button>
+                  <button className="banner-button" >More Info<InformationCircle className='react-icon'/></button>
               </BannerButton>
               <BannerDescription>
                 {truncate(movie?.overview,150)}

@@ -18,14 +18,27 @@ export const RowPoster = styled.div`
         object-fit: contain;
         margin-right: 10px;
         width: 100%;
-        transition: transform 450ms;
+        transition: 200ms ease-out;
+        position: relative;
     }
     .row-poster:hover{
         opacity: 1;
-        transform: scale(1.00);
+        scale: 1.2;
     }
     .row-posterLarge{
         max-height: 250px;
+
+    }
+    .nav-icons{
+        position: relative;
+    }
+    .icons{
+        position:absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        cursor: poointer;
+        opacity: 0;
 
     }
 `
