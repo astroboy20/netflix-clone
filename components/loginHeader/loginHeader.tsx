@@ -51,7 +51,7 @@ const LoginHeader = () => {
                 placeholder='Password' 
                 {...register("password", {required:true})} 
                 />
-                 {errors.email && <p>Please enter a valid email</p>}
+                 {errors.email && <p>Please enter a password that contains 4 to 60 characters </p>}
             </label>
             <Button onClick={()=>setLogin(true)} >Sign In</Button>
           </div>
