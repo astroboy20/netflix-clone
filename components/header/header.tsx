@@ -5,11 +5,14 @@ import { NavContent } from './header.style'
 import Image from 'next/image'
 import { Search,Bell } from 'heroicons-react'
 import Link from 'next/link'
+import useAuth from '@/utils/hooks/useAuth'
 
 
 const Header = () => {
   const [show,handleShow] = useState(false)
+  //logout
 
+  const {logOut}= useAuth()
   const trasitionNavbar= () =>{
     if (window.scrollY > 100){
       handleShow(true)
@@ -52,15 +55,16 @@ useEffect(() => {
             <Bell className='icon-bell'/>
             
           </div>
-          <Link href=''>
+          {/* <Link href=''> */}
             <Image
               src='/images/avatar.png'
               height={30}
               width={30}
               alt='avatar'
               className='nav_avatar'
+              onClick={logOut}
             />
-          </Link>
+          {/* </Link> */}
           
         </div>
         

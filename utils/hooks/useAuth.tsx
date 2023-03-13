@@ -29,7 +29,7 @@ const AuthContext = createContext<IAuth>({
     error:null,
     loading:false
 })
-const AuthProvider = ({children}:AuthProps) => {
+export const AuthProvider = ({children}:AuthProps) => {
     //loading
     const [loading,setLoading] = useState(false)
 
@@ -85,8 +85,8 @@ const AuthProvider = ({children}:AuthProps) => {
         setLoading(false)
 
         await signInWithEmailAndPassword(auth,email,password).
-        then((userCridential)=>{
-            setUser(userCridential.user)
+        then((userCredential)=>{
+            setUser(userCredential.user)
             router.push('/')
             setLoading(false)
         }).catch((error)=>{

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import { Button, LoginBody } from './loginHeader.style'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import useAuth from '@/utils/hooks/useAuth';
 
 type Inputs = {
   email: string,
@@ -13,13 +14,16 @@ const LoginHeader = () => {
 
   const [login, setLogin] = useState(false)
 
+  const {signIn, signUp} = useAuth()
+
   const { register, handleSubmit,  formState: { errors } } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> =async ({email, password}) => {
-    // if(login){
-    //   await 
-    // }else{
-
-    // }
+    if(login){
+      await signIn(email, password)
+    }
+    else{
+      await signUp(email, password)
+    }
   };
 
  
@@ -69,3 +73,11 @@ const LoginHeader = () => {
 }
 
 export {LoginHeader}
+
+function signUp(email: string, password: string) {
+  throw new Error('Function not implemented.');
+}
+function signIn(email: string, password: string) {
+  throw new Error('Function not implemented.');
+}
+
