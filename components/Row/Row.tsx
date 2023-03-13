@@ -1,10 +1,8 @@
 'use client'
 import axios from '@/utils/axios'
-import requests from '@/utils/request'
 import React,{useState,useEffect, useRef} from 'react'
 import Image from 'next/image'
-import {ChevronLeft, ChevronRight} from 'heroicons-react'
-import { RowBody, RowH1, RowPoster } from './row.style'
+import { RowBody, RowH1, RowPoster } from './bigrow.style'
 
 
 type RowProps =  {

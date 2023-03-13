@@ -9,7 +9,7 @@ export const RowPoster = styled.div`
     display: flex;
     overflow-y: hidden;
     overflow-x: scroll;
-    padding: 20px;
+    padding: 20px 20px 20px 0;
     &::-webkit-scrollbar{
         display: none;
     }

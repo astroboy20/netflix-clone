@@ -86,7 +86,7 @@ export const BannerDescription =styled.h1`
     `}
 `
 export const BannerFadeButton = styled.div`
-    height: 7.4rem;
+    height: 5rem;
     background-image:linear-gradient(
         180deg,
         transparent,
