@@ -16,13 +16,19 @@ const LoginHeader = () => {
 
   const {signIn, signUp} = useAuth()
 
+
+  //from react hooks for getting user values and for validation
   const { register, handleSubmit,  formState: { errors } } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> =async ({email, password}) => {
+
+  //on submission the user is either signed in or out
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    console.log(data)
+
     if(login){
-      await signIn(email, password)
+      await signIn(data.email, data.password)
     }
     else{
-      await signUp(email, password)
+      await signUp(data.email, data.password).then((data)=>console.log(data)).catch(error=>console.error(error))
     }
   };
 
@@ -62,7 +68,7 @@ const LoginHeader = () => {
           
           <h4>
             <span className='question'>New to Netflix? </span> 
-            <span className="signup-link" onClick={()=>setLogin(false)}>Sign Up now.</span> 
+            <button className="signup-link" onClick={()=>setLogin(false)}>Sign Up now.</button> 
           </h4>
 
         </form>
@@ -74,10 +80,4 @@ const LoginHeader = () => {
 
 export {LoginHeader}
 
-function signUp(email: string, password: string) {
-  throw new Error('Function not implemented.');
-}
-function signIn(email: string, password: string) {
-  throw new Error('Function not implemented.');
-}
 
