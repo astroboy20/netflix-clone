@@ -76,7 +76,7 @@ import {
       await signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           setUser(userCredential.user)
-          router.push('/login')
+          router.push('/')
           setLoading(false)
         })
         .catch((error) => alert(error.message))
@@ -89,7 +89,6 @@ import {
       signOut(auth)
         .then(() => {
           setUser(null)
-          router.push('/')
         })
         .catch((error) => alert(error.message))
         .finally(() => setLoading(false))
