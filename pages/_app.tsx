@@ -4,15 +4,19 @@ import { ThemeProvider } from 'styled-components'
 import { GlobalStyles,theme } from '@/theme'
 import 'styles/globals.css'
 import { AuthProvider } from '@/utils/hooks/useAuth'
+import { RecoilRoot } from 'recoil'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles/>
       {/* HOC */}
-      <AuthProvider>
-        <Component {...pageProps} />
-      </AuthProvider>
+      <RecoilRoot>
+        <AuthProvider>
+          <Component {...pageProps} />
+        </AuthProvider>
+      </RecoilRoot>
+      
       
     </ThemeProvider>
     

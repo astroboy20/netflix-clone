@@ -7,10 +7,19 @@ import { Header } from '@/components/header'
 import { Banner } from '@/components/banner'
 import { Row } from '@/components/row'
 import requests from '@/utils/request'
+import useAuth from '@/utils/hooks/useAuth'
+import { useRecoilValue } from 'recoil'
+import { modalState } from '@/atoms/modalAtom'
+import { Modal } from '@/components/modal'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const {loading} = useAuth()
+  if (loading) return null
+
+  //modal using the hook recoil
+  const showModal = useRecoilValue(modalState)
   return (
     <>
       <Head>
@@ -32,6 +41,7 @@ export default function Home() {
         <Row title='Documentaries' fetchUrl={requests.fetchDocumentaries}/>
           
       </main>
+      {showModal && <Modal/>}
     </>
   )
 }

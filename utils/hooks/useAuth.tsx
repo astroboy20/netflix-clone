@@ -14,7 +14,7 @@ import {
     user: User | null
     signUp: (email: string, password: string) => Promise<void>
     signIn: (email: string, password: string) => Promise<void>
-    logout: () => Promise<void>
+    logOut: () => Promise<void>
     error: string | null
     loading: boolean
   }
@@ -23,7 +23,7 @@ import {
     user: null,
     signUp: async () => {},
     signIn: async () => {},
-    logout: async () => {},
+    logOut: async () => {},
     error: null,
     loading: false,
   })
@@ -76,26 +76,27 @@ import {
       await signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           setUser(userCredential.user)
-          router.push('/')
+          router.push('/login')
           setLoading(false)
         })
         .catch((error) => alert(error.message))
         .finally(() => setLoading(false))
     }
   
-    const logout = async () => {
+    const logOut = async () => {
       setLoading(true)
   
       signOut(auth)
         .then(() => {
           setUser(null)
+          router.push('/')
         })
         .catch((error) => alert(error.message))
         .finally(() => setLoading(false))
     }
   
     const memoedValue = useMemo(
-      () => ({ user, signUp, signIn, error, loading, logout }),
+      () => ({ user, signUp, signIn, error, loading, logOut }),
       [user, loading, error]
     )
   

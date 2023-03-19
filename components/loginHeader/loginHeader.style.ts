@@ -6,7 +6,7 @@ import { responsive } from "@/theme/responsive"
 export const LoginBody = styled.div`
       background: url('images/BG-BG.jpg');
       background-size: cover;
-      height: 100%;
+      height: 110vh;
       color: #fff;
       padding:5px 3% ;
       form{
@@ -42,8 +42,13 @@ export const LoginBody = styled.div`
       h4{
         text-align: left;
         margin-top: 30px;
-        
+    
 
+    }
+    h4 button{
+      background: #000;
+      border:none;
+      color: #fff;
     }
     .question{
         color: gray;

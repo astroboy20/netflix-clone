@@ -12,7 +12,7 @@ const Header = () => {
   const [show,handleShow] = useState(false)
   //logout
 
-  const {logout}= useAuth()
+  const {logOut}= useAuth()
   const trasitionNavbar= () =>{
     if (window.scrollY > 100){
       handleShow(true)
@@ -62,7 +62,7 @@ useEffect(() => {
               width={30}
               alt='avatar'
               className='nav_avatar'
-              onClick={logout}
+              onClick={logOut}
             />
           {/* </Link> */}
           

@@ -6,6 +6,9 @@ import React,{useEffect, useState} from 'react'
 import { BannerButton, BannerContent, BannerDescription, BannerFadeButton, BannerTitle } from './banner.style'
 import {FaPlay} from 'react-icons/fa'
 import {InformationCircle} from 'heroicons-react'
+import { modalState, movieState } from '@/atoms/modalAtom'
+import { useRecoilState } from 'recoil'
+
 interface Movie{
   id:number;
   poster_path:string;
@@ -17,6 +20,14 @@ interface Movie{
 const Banner = () => {
   const [movie,setMovie]= useState<any>([])
 
+  //modal
+  const [showModal, setShowModal] = useRecoilState(modalState)
+
+  //movie state
+  const [currentMovie,setCurrentMovie]=useRecoilState(movieState)
+
+
+  //for fetching the data from tdmb
   useEffect(() => {
    async function fetchData() {
     const request = await axios.get(requests.fetchTrending)
@@ -56,7 +67,14 @@ const Banner = () => {
               <BannerTitle>{movie?.title || movie?.name || movie?.original_name}</BannerTitle>
               <BannerButton>
                   <button className="banner-button" ><FaPlay className='react-icon'/>Play</button>
-                  <button className="banner-button" >More Info<InformationCircle className='react-icon'/></button>
+                  <button 
+                  
+                    className="banner-button" 
+                    onClick={()=>{
+                      setCurrentMovie(movie)
+                      setShowModal(true)
+                    }}
+                  >More Info<InformationCircle className='react-icon'/></button>
               </BannerButton>
               <BannerDescription>
                 {truncate(movie?.overview,150)}
