@@ -41,7 +41,7 @@ export default function Home() {
         <Row title='Documentaries' fetchUrl={requests.fetchDocumentaries}/>
           
       </main>
-      {/* {showModal && <Modal/>} */}
+      {showModal && <Modal/>}
     </>
   )
 }

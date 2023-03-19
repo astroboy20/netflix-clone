@@ -3,6 +3,8 @@ import axios from '@/utils/axios'
 import React,{useState,useEffect, useRef} from 'react'
 import Image from 'next/image'
 import { RowBody, RowH1, RowPoster } from './bigrow.style'
+import { modalState, movieState } from '@/atoms/modalAtom'
+import { useRecoilState } from 'recoil'
 
 
 type RowProps =  {
@@ -38,6 +40,11 @@ const Row =({title,fetchUrl,isLargeRow}:RowProps)=>{
     // }
     //initializing the movie
     const [movies,setMovies] = useState<Movie[]>([])
+      //modal
+  const [showModal, setShowModal] = useRecoilState(modalState)
+
+  //movie state
+  const [currentMovie,setCurrentMovie]=useRecoilState(movieState)
     useEffect(() => {
         async function fetchData(){
             const request = await axios.get(fetchUrl)
@@ -47,13 +54,18 @@ const Row =({title,fetchUrl,isLargeRow}:RowProps)=>{
     fetchData()  
     }, [fetchUrl])
 const base_url = "https://image.tmdb.org/t/p/original/"
+    
+
     return (
         <div>
             <RowBody>
                 <RowH1>{title}</RowH1>
                 
                    
-                    <RowPoster>
+                    <RowPoster onClick={() => {
+                        setCurrentMovie(movies)
+                        setShowModal(true)
+                    }}>
                         {/* {movies.map((movies)=>{})} */}
                         {movies.map((movie)=>(
                             ((isLargeRow && movie.poster_path) || 
