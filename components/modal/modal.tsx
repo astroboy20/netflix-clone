@@ -7,6 +7,7 @@ import { X } from 'heroicons-react'
 import { API_KEY } from '@/utils/request'
 import { Element, Genre } from '@/typings'
 import ReactPlayer from 'react-player/lazy'
+import { FaPlay } from 'react-icons/fa'
 
 const Modal = () => {
   //sate for the modal
@@ -28,7 +29,7 @@ const Modal = () => {
       async function fetchMovie() {
         const data = await fetch(
           `https://api.themoviedb.org/3/${
-            movie?.media_type  === 'tv' ? 'tv' : 'movie'
+            movie?.media_type  ===  'tv' ? 'tv' : 'movie'
           }/${movie?.id}?api_key=${API_KEY}&language=en-US&append_to_response=videos`
         ).then((response) => response.json())
         if (data?.videos) {
@@ -45,9 +46,33 @@ const Modal = () => {
       fetchMovie()
     }, [movie])
 
+    const materialUI = {
+      position:'fixed',
+      top:'28px',
+      left:'0',
+      zIndex:'50',
+      maxWidth:'auto',
+      overflow:'hidden',
+      overflowY:'scroll'
+
+    }
 
 console.log(trailer)
-  return <MuiModal open={showModal} onClose={handleClose}>
+  return <MuiModal 
+        style={{position:'fixed',
+        top:'28px',
+        left:'0',
+        zIndex:'50',
+        maxWidth:'auto',
+        overflow:'hidden',
+        overflowY:'scroll',
+        // scrollbar:'hide'
+        
+
+        
+      }} 
+        open={showModal} 
+        onClose={handleClose}>
     <>
         <MButton className='modalButton' onClick={handleClose}>
             <X className='x-icon'/>
@@ -62,6 +87,12 @@ console.log(trailer)
             playing
             muted={muted}/>
         </Player>
+        <div>
+          <div>
+            <button className='play-button'> <FaPlay/>Play</button>
+            
+          </div>
+        </div>
     </>
   </MuiModal>
 }

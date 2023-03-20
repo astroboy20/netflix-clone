@@ -65,10 +65,7 @@ const base_url = "https://image.tmdb.org/t/p/original/"
                 <RowH1>{title}</RowH1>
                 
                    
-                    <RowPoster onClick={() => {
-                        setCurrentMovie(movies)
-                        setShowModal(true)
-                    }}>
+                    <RowPoster>
                         {/* {movies.map((movies)=>{})} */}
                         {movies.map((movie)=>(
                             ((isLargeRow && movie.poster_path) || 

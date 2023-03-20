@@ -16,8 +16,17 @@ export const MButton = styled.button`
         height: 6px;
         width: 6px;
     }
+    .play-button{
+        display:flex;
+        align-items:center;
+        gap:10px;
+        border-radius:10px;
+        background: white;
+    }
 `
 
 export const Player = styled.div`
+    position: relative;
+    padding:56.39%;
     
 `
