@@ -40,20 +40,14 @@ const Banner = () => {
     return request
    }
    fetchData()
-    // axios.get('https://api.themoviedb.org/3/trending/all/week?api_key=850c1ff854a8e55e79ae5d97b8a9fbb9&language=en-US')
-    // .then(response=>{
-    //   console.log(response)
-    // }).catch(error=>{
-    //   console.log(error)
-    // })
   }, [])
-  console.log(movie)
+ console.log('movie',movie)
   //to truncate the description text
   const truncate=(string:string, n:number)=>{
     return string?.length > n ? string.substring(0, n -1) + '...' : string
   }
   return (
-    <div>
+    <>
         <div 
         className='banner_body'
         style={{ 
@@ -84,7 +78,7 @@ const Banner = () => {
             
         </div>
         <BannerFadeButton/>
-    </div>
+    </>
   )
 }
 

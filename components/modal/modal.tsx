@@ -28,7 +28,7 @@ const Modal = () => {
       async function fetchMovie() {
         const data = await fetch(
           `https://api.themoviedb.org/3/${
-            movie?.media_type === 'tv' ? 'tv' : 'movie'
+            movie?.media_type  === 'tv' ? 'tv' : 'movie'
           }/${movie?.id}?api_key=${API_KEY}&language=en-US&append_to_response=videos`
         ).then((response) => response.json())
         if (data?.videos) {

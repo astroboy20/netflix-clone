@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { RowBody, RowH1, RowPoster } from './bigrow.style'
 import { modalState, movieState } from '@/atoms/modalAtom'
 import { useRecoilState } from 'recoil'
+import { request } from 'http'
 
 
 type RowProps =  {
@@ -18,6 +19,7 @@ interface Movie{
     poster_path:string;
     backdrop_path:string;
     name:string
+      media_type?: string
 }
 const Row =({title,fetchUrl,isLargeRow}:RowProps)=>{
     // for easy scrolling
@@ -39,7 +41,7 @@ const Row =({title,fetchUrl,isLargeRow}:RowProps)=>{
     //     }
     // }
     //initializing the movie
-    const [movies,setMovies] = useState<Movie[]>([])
+    const [movies,setMovies] = useState<any[]>([])
       //modal
   const [showModal, setShowModal] = useRecoilState(modalState)
 
@@ -53,6 +55,7 @@ const Row =({title,fetchUrl,isLargeRow}:RowProps)=>{
         }
     fetchData()  
     }, [fetchUrl])
+    console.log(movies)
 const base_url = "https://image.tmdb.org/t/p/original/"
     
 
