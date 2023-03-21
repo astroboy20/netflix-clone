@@ -57,20 +57,12 @@ const Row =({title,fetchUrl,isLargeRow}:RowProps)=>{
         }
     fetchData()  
     }, [fetchUrl])
-    movies.forEach(m=>{
-        console.log('movie id',m.id)
-    })
-const base_url = "https://image.tmdb.org/t/p/original/"
-    
-
+   
     return (
         <div>
             <RowBody>
-                <RowH1>{title}</RowH1>
-                
-                   
+                <RowH1>{title}</RowH1>  
                     <RowPoster >
-                        {/* {movies.map((movies)=>{})} */}
                         {movies.map((movie)=>(
                             ((isLargeRow && movie.poster_path) || 
                             (!isLargeRow && movie.backdrop_path)) && (
@@ -81,12 +73,6 @@ const base_url = "https://image.tmdb.org/t/p/original/"
                         )
                         
                         ))}
-                        {/* <Image
-                            src='/images/bgnetflix.png'
-                            width={100}
-                            height={100}
-                            alt='i dey work'
-                        /> */}
                     </RowPoster>
                     
             </RowBody>

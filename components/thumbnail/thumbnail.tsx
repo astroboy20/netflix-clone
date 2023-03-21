@@ -19,22 +19,19 @@ const Thumbnail = ({movie,isLargeRow}:Props) => {
     const [showModal, setShowModal] = useRecoilState(modalState)
   return (
     <>
-    <ThumbnailBody   onClick={() => {
-        setCurrentMovie(movie)
-        setShowModal(true)
-      }}>
-            
-                                <Image
-                                    
-                                    key={movie.id}
-                                    src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
-                                    alt='show werey'
-                                    width={150}
-                                    height={100}
-                                    
-                                />
-                        
-    </ThumbnailBody>
+        <ThumbnailBody   
+            onClick={() => {
+            setCurrentMovie(movie)
+            setShowModal(true)
+        }}>
+            <Image                
+                key={movie.id}
+                src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
+                alt='show werey'
+                width={150}
+                height={100}/>    
+                                                     
+        </ThumbnailBody>
         
       
     </>
