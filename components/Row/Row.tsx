@@ -66,7 +66,7 @@ const Row =({title,fetchUrl,isLargeRow}:RowProps)=>{
                         {movies.map((movie)=>(
                             ((isLargeRow && movie.poster_path) || 
                             (!isLargeRow && movie.backdrop_path)) && (
-                                <div className={`row-poster ${isLargeRow && 'row-posterLarge'}`}>
+                                <div key={movie.id} className={`row-poster ${isLargeRow && 'row-posterLarge'}`}>
                                     <Thumbnail key={movie.id} movie={movie}/>
                                 </div>
                                 
