@@ -8,7 +8,9 @@ export const BannerBody = styled.div`
     color: white;
     object-fit:contain;
     position: relative;
-    /* width: 50%; */
+    ${responsive("$small")`
+        height: 300px;
+    `}
 
     
      

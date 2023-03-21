@@ -10,9 +10,10 @@ import { ThumbnailBody } from './thumbnail.style'
 interface Props{
     movie: Movie | DocumentData
     isLargeRow?:boolean
+    key:number
 }
 
-const Thumbnail = ({movie,isLargeRow}:Props) => {
+const Thumbnail = ({movie,isLargeRow,key}:Props) => {
     const base_url = "https://image.tmdb.org/t/p/original/"
 
     const [currentMovie, setCurrentMovie] = useRecoilState(movieState)
@@ -23,12 +24,14 @@ const Thumbnail = ({movie,isLargeRow}:Props) => {
             onClick={() => {
             setCurrentMovie(movie)
             setShowModal(true)
+            
         }}>
             <Image 
                 src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
                 alt='show werey'
                 width={150}
-                height={100}/>    
+                height={100}
+                key={movie.id}/>    
                                                      
         </ThumbnailBody>
         

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import MuiModal from '@mui/material/Modal'
 import { modalState, movieState } from '@/atoms/modalAtom'
 import {useRecoilState} from 'recoil'
-import { MButton, Player } from './modal.style'
-import { Plus, X } from 'heroicons-react'
+import { ButtonContainer, Buttons, Info, InfoBody, MButton, Player } from './modal.style'
+import { Plus, ThumbUp, VolumeOff, VolumeUp, X } from 'heroicons-react'
 import { API_KEY } from '@/utils/request'
 import { Element, Genre } from '@/typings'
 import ReactPlayer from 'react-player/lazy'
@@ -62,13 +62,56 @@ console.log(trailer)
             playing
             muted={muted}/>
         </Player>
-        <div>
-          <div>
+        <ButtonContainer>
+          <Buttons>
             <button className='play-button'> <FaPlay/>Play</button>
-            <button className='modalButton add-button'> <Plus/>Play</button>
+            <button className='modalButton '> <Plus/></button>
+            <button className='modalButton '> <ThumbUp/></button>
             
+          </Buttons>
+          <div>
+            <button className='modalButton' onClick={()=>setMuted(!muted)}>
+              {muted ? (
+                <VolumeUp/>
+              ):(
+                <VolumeOff/>
+              )}
+            </button>
           </div>
-        </div>
+        </ButtonContainer>
+
+        <InfoBody>
+
+          <div>
+            <Info >
+              <p style={{display:'flex',color:'green',fontWeight:'bold'}}> {movie!.vote_average *10}%  Match </p>
+              <p>{movie?.release_date || movie?.first_air_date} </p>
+              <div className='HD'>HD</div>
+            </Info>
+          </div>
+
+          <div className='overview'>
+            <p>{movie?.overview}</p>
+          </div>
+
+            <div className='genre'>
+              <span>Genres: </span>
+              {genre.map((gen)=>gen.name).join(', ')}
+            </div>
+          
+          
+            <div className='lang' style={{display:'flex', gap:'10px', alignItems:'center'}}>
+              <span>Original Language: </span>
+              <p>{movie?.original_language}</p>
+            </div>
+          
+          
+            <div className='vote' style={{display:'flex', gap:'10px', alignItems:'center'}}>
+              <span>Vote: </span>
+              <p>{movie?.vote_count}</p>
+            </div>
+         
+        </InfoBody>
     </>
   </MuiModal>
 }

@@ -47,16 +47,25 @@ body {
     border-radius:50%;
     transition: 0.5s ease-in;
     border:gray;
-    background-color: #2a2a2a/60 ;
+    background-color:transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    transition: 0.3s;
 }
 .modalButton:hover{
  background-color: #000/10;
 }
-
+@media screen and (max-width:750px) {
+  .modalButton{
+      height: 35px;
+      width: 35px;
+      
+  }
+}
 
 .muiModal{
     position:fixed;
-    top:28px;
+    /* margin-top: 20px; */
     left:0;
     right:0;
     z-index: 50;
@@ -64,7 +73,6 @@ body {
     margin-right: auto;
     width: 100%;
     max-width: 1024px;
-    max-height:50%;
     overflow-y:scroll;
     -webkit-scrollbar:hide;
 }
