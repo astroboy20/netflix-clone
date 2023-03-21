@@ -27,6 +27,6 @@ export const MButton = styled.button`
 
 export const Player = styled.div`
     position: relative;
-    padding:56.39%;
+    padding:56.25%;
     
 `

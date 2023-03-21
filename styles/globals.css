@@ -52,3 +52,22 @@ body {
 .modalButton:hover{
  background-color: #000/10;
 }
+
+
+.muiModal{
+    position:fixed;
+    top:28px;
+    left:0;
+    right:0;
+    z-index: 50;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1024px;
+    overflow:hidden;
+    overflow-y:scroll;
+    -webkit-scrollbar:hide;
+}
+.muiModal::-webkit-scrollbar{
+  display: none;
+}

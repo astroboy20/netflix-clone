@@ -24,8 +24,7 @@ const Thumbnail = ({movie,isLargeRow}:Props) => {
             setCurrentMovie(movie)
             setShowModal(true)
         }}>
-            <Image                
-                key={movie.id}
+            <Image 
                 src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
                 alt='show werey'
                 width={150}
