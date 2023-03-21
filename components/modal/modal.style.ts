@@ -27,6 +27,16 @@ export const MButton = styled.button`
 
 export const Player = styled.div`
     position: relative;
-    padding:56.25%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    
+`
+export const ButtonContainer = styled.div`
+   
+    
+`
+export const Buttons= styled.div`
+    
     
 `

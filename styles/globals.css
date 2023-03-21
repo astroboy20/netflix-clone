@@ -64,7 +64,7 @@ body {
     margin-right: auto;
     width: 100%;
     max-width: 1024px;
-    overflow:hidden;
+    max-height:50%;
     overflow-y:scroll;
     -webkit-scrollbar:hide;
 }

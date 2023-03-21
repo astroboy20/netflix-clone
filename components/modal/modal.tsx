@@ -3,7 +3,7 @@ import MuiModal from '@mui/material/Modal'
 import { modalState, movieState } from '@/atoms/modalAtom'
 import {useRecoilState} from 'recoil'
 import { MButton, Player } from './modal.style'
-import { X } from 'heroicons-react'
+import { Plus, X } from 'heroicons-react'
 import { API_KEY } from '@/utils/request'
 import { Element, Genre } from '@/typings'
 import ReactPlayer from 'react-player/lazy'
@@ -65,6 +65,7 @@ console.log(trailer)
         <div>
           <div>
             <button className='play-button'> <FaPlay/>Play</button>
+            <button className='modalButton add-button'> <Plus/>Play</button>
             
           </div>
         </div>
