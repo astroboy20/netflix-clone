@@ -14,7 +14,8 @@ export const RowPoster = styled.div`
         display: none;
     }
     .row-poster{
-        max-height: 100px;
+        max-height: 100vh;
+        height: 100%;
         object-fit: contain;
         margin-right: 10px;
         width: 100%;

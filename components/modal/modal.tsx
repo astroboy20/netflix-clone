@@ -24,13 +24,11 @@ const Modal = () => {
     const[muted,setMuted]=useState(false)
 
     useEffect(() => {
-      if (!movie) return
+      if (!movie || !movie.id) return
   
       async function fetchMovie() {
         const data = await fetch(
-          `https://api.themoviedb.org/3/${
-            movie?.media_type  ===  'tv' ? 'tv' : 'movie'
-          }/${movie?.id}?api_key=${API_KEY}&language=en-US&append_to_response=videos`
+          `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${API_KEY}&language=en-US&append_to_response=videos`
         ).then((response) => response.json())
         if (data?.videos) {
           const index = data.videos.results.findIndex(
@@ -45,7 +43,7 @@ const Modal = () => {
   
       fetchMovie()
     }, [movie])
-
+console.log('id',movie.id)
     const materialUI = {
       position:'fixed',
       top:'28px',

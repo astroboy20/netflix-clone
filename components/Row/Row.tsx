@@ -6,6 +6,7 @@ import { RowBody, RowH1, RowPoster } from './bigrow.style'
 import { modalState, movieState } from '@/atoms/modalAtom'
 import { useRecoilState } from 'recoil'
 import { request } from 'http'
+import { Thumbnail } from '../thumbnail'
 
 
 type RowProps =  {
@@ -15,11 +16,11 @@ type RowProps =  {
 }
 
 interface Movie{
-    id:number;
     poster_path:string;
     backdrop_path:string;
-    name:string
-      media_type?: string
+    name:string;
+    id:number
+    
 }
 const Row =({title,fetchUrl,isLargeRow}:RowProps)=>{
     // for easy scrolling
@@ -41,7 +42,7 @@ const Row =({title,fetchUrl,isLargeRow}:RowProps)=>{
     //     }
     // }
     //initializing the movie
-    const [movies,setMovies] = useState<any[]>([])
+    const [movies,setMovies] = useState<Movie[]>([])
       //modal
   const [showModal, setShowModal] = useRecoilState(modalState)
 
@@ -52,10 +53,13 @@ const Row =({title,fetchUrl,isLargeRow}:RowProps)=>{
             const request = await axios.get(fetchUrl)
             setMovies(request.data.results)
             return request
+            
         }
     fetchData()  
     }, [fetchUrl])
-    console.log(movies)
+    movies.forEach(m=>{
+        console.log('movie id',m.id)
+    })
 const base_url = "https://image.tmdb.org/t/p/original/"
     
 
@@ -65,20 +69,17 @@ const base_url = "https://image.tmdb.org/t/p/original/"
                 <RowH1>{title}</RowH1>
                 
                    
-                    <RowPoster>
+                    <RowPoster >
                         {/* {movies.map((movies)=>{})} */}
                         {movies.map((movie)=>(
                             ((isLargeRow && movie.poster_path) || 
                             (!isLargeRow && movie.backdrop_path)) && (
-                                <Image
-                                className={`row-poster ${isLargeRow && 'row-posterLarge'}`}
-                                    key={movie.id}
-                                    src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
-                                    alt='show werey'
-                                    width={100}
-                                    height={100}
-                                />
+                                <div className={`row-poster ${isLargeRow && 'row-posterLarge'}`}>
+                                    <Thumbnail key={movie.id} movie={movie}/>
+                                </div>
+                                
                         )
+                        
                         ))}
                         {/* <Image
                             src='/images/bgnetflix.png'
