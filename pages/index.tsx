@@ -15,11 +15,14 @@ import { Modal } from '@/components/modal'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  const {loading} = useAuth()
-  if (loading) return null
+  
 
   //modal using the hook recoil
   const showModal = useRecoilValue(modalState)
+
+  //loading state
+  const {loading} = useAuth()
+  if (loading) return <div>Loading...</div>
   return (
     <>
       <Head>
