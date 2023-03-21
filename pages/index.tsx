@@ -21,8 +21,8 @@ export default function Home() {
   const showModal = useRecoilValue(modalState)
 
   //loading state
-  const {loading} = useAuth()
-  if (loading) return <div>Loading...</div>
+  // const {loading} = useAuth()
+  // if (loading) return <div>Loading...</div>
   return (
     <>
       <Head>
