@@ -7,7 +7,7 @@ import {FaPlay} from 'react-icons/fa'
 import {InformationCircle} from 'heroicons-react'
 import { modalState, movieState } from '@/atoms/modalAtom'
 import { useRecoilState } from 'recoil'
-import { BannerButton, BannerContent, BannerDescription, BannerFadeButton, BannerTitle } from './banner.style'
+import { BannerButton, BannerContent, BannerDescription, BannerFadeButton, BannerTitle } from './Banner.style'
 
 interface Movie{
   id:number;
