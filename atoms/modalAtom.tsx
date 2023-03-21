@@ -1,3 +1,4 @@
+import { Movie } from '@/typings'
 import {DocumentData} from 'firebase/firestore'
 import {atom} from 'recoil'
 
@@ -8,7 +9,7 @@ export const modalState = atom({
 })
 
 //for movie
-export const movieState = atom<any | DocumentData| null>({
+export const movieState = atom<Movie | DocumentData| null>({
     key:'movieState',
     default:null,
 })
