@@ -56,7 +56,7 @@ const Banner = () => {
           backgroundSize:'cover',
           backgroundRepeat:'no-repeat',
           backgroundPosition:'center center',
-          backgroundImage:`url(${base_url}${movie?.backdrop_path || movie?.poster_path}")`        
+          backgroundImage:`url('https://image.tmdb.org/t/p/original/'${movie?.backdrop_path || movie?.poster_path}")`        
           }}>
 
             <BannerContent>
