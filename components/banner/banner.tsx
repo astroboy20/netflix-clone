@@ -46,6 +46,8 @@ const Banner = () => {
   const truncate=(string:string, n:number)=>{
     return string?.length > n ? string.substring(0, n -1) + '...' : string
   }
+
+  const base_url = 'https://image.tmdb.org/t/p/original/'
   return (
     <>
         <div 
@@ -54,7 +56,7 @@ const Banner = () => {
           backgroundSize:'cover',
           backgroundRepeat:'no-repeat',
           backgroundPosition:'center center',
-          backgroundImage:`url("https:image.tmdb.org/t/p/original/${movie?.backdrop_path || movie?.poster_path}")`        
+          backgroundImage:`url(${base_url}${movie?.backdrop_path || movie?.poster_path}")`        
           }}>
 
             <BannerContent>
