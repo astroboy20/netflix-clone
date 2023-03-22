@@ -15,7 +15,7 @@ export interface Movie {
   origin_country: string[]
   original_language: string
   original_name: string
-  overview: string
+  overview: string | undefined
   popularity: number
   poster_path: string
   vote_average: number

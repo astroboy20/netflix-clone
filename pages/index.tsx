@@ -11,8 +11,10 @@ import useAuth from '@/utils/hooks/useAuth'
 import { useRecoilValue } from 'recoil'
 import { modalState } from '@/atoms/modalAtom'
 import { Modal } from '@/components/modal'
+import { Movie } from '@/typings'
 
 const inter = Inter({ subsets: ['latin'] })
+
 
 export default function Home() {
   
